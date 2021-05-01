@@ -1,0 +1,284 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}/* Box sizing rules */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements 
+with a list role, which suggests default 
+styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get 
+default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/*Reset links styles*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// General
+body {
+    font-family: Raleway;
+}
+
+.title {
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.subtitle {
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.button {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 300;
+    padding-top: 13px;
+    text-align: center;
+    height: 55px;
+    color: #FFF;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.5);
+}
+
+// Header
+.header {
+    position: relative;
+    min-height: 100vh;
+    background: url(../images/header_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3% 10% 3%;
+    z-index: 3;
+    &__logo {
+        float: left;
+    }
+    
+    .menu {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        color: #000;
+        list-style: none;
+        overflow: hidden;
+        clear: both;
+        max-height: 0;
+        transition: max-height .2s ease-out;
+        li {
+            list-style-type: none;
+            text-align: right;
+            a {
+                display: block;
+                &:hover {
+                    border-top: 3px solid rgb(255, 123, 0);
+                }
+            }
+        }
+        
+    }
+
+    .menu-icon {
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+    }
+
+    .menu-icon .navicon {
+        background: #333;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background .2s ease-out;
+        width: 18px;
+    }
+
+    .menu-icon .navicon:before,
+    .menu-icon .navicon:after {
+      background: #333;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all .2s ease-out;
+      width: 100%;
+    }
+
+    .menu-icon .navicon:before {
+        top: 5px;
+    }
+      
+    .menu-icon .navicon:after {
+        top: -5px;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+      
+    .menu-btn:checked ~ .menu {
+        max-height: 240px;
+    }
+      
+    .menu-btn:checked ~ .menu-icon .navicon {
+        background: transparent;
+    }
+      
+    .menu-btn:checked ~ .menu-icon .navicon:before {
+        transform: rotate(-45deg);
+    }
+      
+    .menu-btn:checked ~ .menu-icon .navicon:after {
+        transform: rotate(45deg);
+    }
+      
+    .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+    .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+        top: 0;
+    }
+
+    /*Header info*/
+    &__info {
+        padding-top: 15%;
+        .title {
+            clear: both;
+        }
+
+        .subtitle {
+            max-width: 370px;
+            padding-bottom: 35px;
+        }
+
+        .button {
+            background-color: #ff6033;
+            width: 200px;
+            transition: 0.2s;
+            &:hover {
+                background-color: #d4522e;
+            }
+        }
+    }
+
+    &__scroll {
+        position: absolute;
+        margin: 0 auto;
+        bottom: 5%;
+        left: 50%;
+	    transform: translate(-50%);
+    }
+}
+
+main {
+    background-color: #00b9b9;
+    height: 500px;
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 900px) {
+    .menu li {
+        padding: 10px 40px 0 0;
+            &:last-child {
+                padding-right: 0;
+        }
+    }
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+        flex-direction: row;
+    }
+    .header .menu-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .header {
+        background-position: center;
+        background-size: auto;
+        background-position: 60%;
+        
+        &__scroll {
+            transform: scale(.7);
+        }
+    }
+}
+
